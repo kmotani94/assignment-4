@@ -3,8 +3,9 @@ def calcSalary(salary, el, l, hours, days, start):
 	day = {"Monday": 0, "Tuesday": 1, "Wednesday": 2, "Thursday": 3, "Friday": 4, "Saturday": 5, "Sunday": 6}
 	n = [0, 1, 2, 3, 4, 5, 6]
 	workingDays = 0
+	al = el - l
 	for i in range(1, days+1):
-		print(i, n[((i+day[start])%7)-1], week[((i+day[start])%7)-1])
+		# print(i, n[((i+day[start])%7)-1], week[((i+day[start])%7)-1])
 		if (n[((i+day[start])%7)-1]<5 and n[((i+day[start])%7)-1]>=0):
 			workingDays += 1
 
@@ -12,8 +13,10 @@ def calcSalary(salary, el, l, hours, days, start):
 	totalSalary = (workingDays-l)*hours*salary
 	print("Working days:", workingDays)
 	print("Leaves:", l)
-	print("Total Working days excluding leaves:", workingDays-l)
+	print("Earned leaves:", el)
+	print("Total Working days excluding leaves:", workingDays+al)
 	print("Total number of hours:", totalHours)
+	print("Salary per hour:", salary)
 	print("Total monthly salary:", totalSalary)
 
 if __name__ == '__main__':
